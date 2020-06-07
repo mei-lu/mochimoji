@@ -24,6 +24,6 @@ app.use('/kaomojis', postsRoute)
 
 //Start Server
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log("it's live! <3")
 })
