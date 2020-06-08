@@ -10,13 +10,14 @@ router.get('/', async (req, res) => {
 
 //Get random Kaomoji with any emotion
 router.get('/random', async (req, res) => {
-    const randomKaomoji = await Kaomoji.find().limit(1)
+    const count = Kaomoji.estimatedDocumentCount
+    const randomKaomoji = await Kaomoji.find().skip().limit(1)
     res.json(randomKaomoji)
 })
 
 // Get a specific Kaomoji by emotion
 router.get('/:emotion', (req, res) => {
-    const emotionInput = req.body.emotion
+    const emotionInput = req.params.emotion
     Kaomoji.countDocuments({emotion: emotionInput}, (err, count) => {
         random = Math.floor(Math.random() * count);
 

@@ -19,8 +19,8 @@ app.use(cors())
 
 //Routes
 
-const postsRoute = require('./routes/posts')
-app.use('/kaomojis', postsRoute)
+const kaomojisRoute = require('./routes/kaomojis')
+app.use('/kaomojis', kaomojisRoute)
 
 //Start Server
 
